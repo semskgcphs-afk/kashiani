@@ -642,6 +642,10 @@
             background: #000000;
         }
 
+        .print-timestamp {
+            display: none;
+        }
+
         .loading {
             text-align: center;
             font-size: 18px;
@@ -842,26 +846,25 @@
                 background: white !important;
                 display: flex;
                 flex-direction: column;
-                height: 100%;
+                min-height: 100%;
                 position: relative !important;
                 z-index: 1 !important;
-                overflow: hidden !important;
             }
 
-            /* Faint repeated watermark, printed behind all content */
+            /* Faint repeated watermark, printed behind all content on every page */
             .container::before {
                 content: "109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487\A109487   109487   109487   109487" !important;
-                position: absolute !important;
+                position: fixed !important;
                 top: 50% !important;
                 left: 50% !important;
-                width: 160% !important;
-                height: 160% !important;
+                width: 130vw !important;
+                height: 130vh !important;
                 display: block !important;
                 white-space: pre !important;
                 text-align: center !important;
                 font-size: 13pt !important;
                 line-height: 2.4 !important;
-                color: rgba(0, 0, 0, 0.08) !important;
+                color: rgba(0, 0, 0, 0.07) !important;
                 font-weight: bold !important;
                 transform: translate(-50%, -50%) rotate(-30deg) !important;
                 z-index: -1 !important;
@@ -878,6 +881,8 @@
                 margin-bottom: 15px !important;
                 padding-bottom: 10px !important;
                 border-bottom: 2px solid #000 !important;
+                page-break-inside: avoid !important;
+                page-break-after: avoid !important;
             }
             
             .school-details {
@@ -903,6 +908,7 @@
                 justify-content: space-between;
                 gap: 15px;
                 margin-bottom: 15px !important;
+                page-break-inside: avoid !important;
             }
 
             .info-content {
@@ -1041,6 +1047,14 @@
                 width: 160px !important;
                 height: 1px !important;
                 background: #000 !important;
+            }
+
+            .print-timestamp {
+                display: block !important;
+                text-align: right !important;
+                font-size: 7.5pt !important;
+                color: #555 !important;
+                margin-top: 10px !important;
             }
         }
     </style>
@@ -1361,6 +1375,7 @@
                     <div>Class Teacher</div>
                     <div>Head Teacher</div>
                 </div>
+                <p class="print-timestamp">Printed on: ${new Date().toLocaleString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
             </div>`;
 
             document.getElementById("result").innerHTML = html;
