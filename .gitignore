@@ -1,0 +1,13 @@
+# clasp
+.clasp.json
+.clasprc.json
+
+# credentials / secrets
+*.credentials.json
+
+# node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
