@@ -19,7 +19,7 @@
     --text:#222;
     --muted:#555;
     --border:#e2e6d8;
-    --bg:#f7f8f2;
+    --bg:#ffffff;
   }
 
   body{
@@ -86,19 +86,19 @@
 
   .title-block{ flex:1; min-width:220px; text-align:center; }
   .title-block h1{
-    font-size:21px;
+    font-size:35px;
     color:#fff;
     font-weight:800;
     line-height:1.35;
   }
   .title-block .en{
-    font-size:14px;
+    font-size:20px;
     letter-spacing:.4px;
     color:#dcefc9;
     text-transform:uppercase;
   }
-  .title-block .addr{ font-size:13px; color:#dcefc9; margin-top:2px; }
-  .title-block .eiin{ font-size:12.5px; color:#c7e2b0; }
+  .title-block .addr{ font-size:20px; color:#dcefc9; margin-top:2px; }
+  .title-block .eiin{ font-size:20px; color:#c7e2b0; }
 
   .menu-toggle{
     flex-shrink:0;
@@ -176,8 +176,9 @@
 
   /* ===== main nav with mega dropdown ===== */
   nav.main-nav{
-    background:var(--green-dark);
+    background:#fff;
     border-top:3px solid var(--gold);
+    border-bottom:1px solid var(--border);
     position:relative;
     z-index:50;
   }
@@ -191,15 +192,23 @@
   nav.main-nav > .top > li{ position:relative; }
   nav.main-nav a{
     display:block;
-    color:#fff;
+    color:#000;
     text-decoration:none;
     font-size:14.5px;
     font-weight:600;
     padding:9px 14px;
-    border-right:1px solid rgba(255,255,255,0.12);
+    border-right:1px solid var(--border);
     white-space:nowrap;
   }
-  nav.main-nav > .top > li > a:hover{ background:var(--green-mid); }
+  nav.main-nav > .top > li > a:hover{ background:var(--green-light); }
+  nav.main-nav > .top > li:first-child > a{
+    background:#fff;
+    color:#000;
+  }
+  nav.main-nav > .top > li:first-child > a:hover{
+    background:#f0f0f0;
+    color:#000;
+  }
   nav.main-nav .dropdown{
     display:none;
     position:absolute;
@@ -252,12 +261,14 @@
 
   /* ===== notice marquee ===== */
   .notice-strip{
-    background:#fff8e1;
+    background:linear-gradient(135deg, var(--green-dark), var(--green));
     border-bottom:1px solid var(--border);
     display:flex;
     align-items:center;
-    max-width:1300px;
-    margin:0 auto;
+    width:100%;
+    height:110px;
+    padding:0 24px;
+    box-sizing:border-box;
   }
   .notice-strip .tag{
     background:var(--red);
@@ -280,7 +291,7 @@
     display:inline-block;
     padding-left:100%;
     animation:scrollLeft 22s linear infinite;
-    color:#7a4a00;
+    color:#fff;
     font-size:14px;
   }
   @keyframes scrollLeft{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-100%);} }
@@ -331,7 +342,7 @@
   }
   .panel h3 .refresh{ font-size:12.5px; font-weight:400; opacity:.8; }
 
-  table.info-table{ width:100%; border-collapse:separate; border-spacing:6px; background:var(--bg); }
+  table.info-table{ width:100%; border-collapse:separate; border-spacing:12px; background:transparent; }
   table.info-table td{
     text-align:center;
     padding:0;
@@ -339,19 +350,21 @@
     width:33.33%;
   }
   table.info-table td a{
-    display:flex; flex-direction:column; align-items:center; gap:18px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
     text-decoration:none; color:var(--text); font-size:22px; font-weight:700;
     background:#fff;
     border:1px solid var(--border);
     border-radius:18px;
-    padding:42px 20px;
-    box-shadow:0 2px 6px rgba(92,0,24,0.08);
-    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    padding:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.06);
+    transition:box-shadow .2s ease, border-color .2s ease;
+    height:250px;
+    box-sizing:border-box;
+    overflow:hidden;
   }
   table.info-table td a:hover{
     color:var(--green-dark);
-    transform:translateY(-4px);
-    box-shadow:0 8px 18px rgba(92,0,24,0.18);
+    box-shadow:0 8px 18px rgba(0,0,0,0.14);
     border-color:var(--gold);
   }
   table.info-table .ic{
@@ -491,6 +504,8 @@
   .social-ic.c-oc{ background:#3fa9e0; }
   .social-ic.c-an{ background:#8a63d2; }
 
+
+
   .link-strip{
     background:#fff; border:1px solid var(--border);
     display:flex; flex-wrap:wrap;
@@ -506,7 +521,7 @@
   footer{ background:var(--green-dark); color:#cfe8d2; margin-top:20px; }
   .footer-inner{
     max-width:1300px; margin:0 auto; padding:22px 20px;
-    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:20px; font-size:14.5px;
+    display:grid; grid-template-columns:1.1fr 1fr 1fr 1fr; gap:20px; font-size:14.5px;
   }
   .footer-inner h5{
     color:#fff; font-size:15.5px; margin-bottom:10px;
@@ -541,7 +556,7 @@
   <!-- হেডার: বোর্ডের ধাঁচে — সবুজ ব্যাকগ্রাউন্ড, লোগো, বিদ্যালয়ের নাম দ্বিভাষিক, মেনু আইকন -->
   <header>
     <div class="header-inner">
-      <div class="emblem"><img src="https://drive.google.com/uc?export=view&id=1gAB25Ft4C3j1pQysHUNJZh4G7xbwb4-5" alt="বিদ্যালয়ের লোগো"></div>
+      <div class="emblem"><img src="images/school-logo.jpg" alt="বিদ্যালয়ের লোগো"></div>
 
       <div class="title-block">
         <h1 data-bn="কাশিয়ানী গিরীশ চন্দ্র পাইলট উচ্চ বিদ্যালয়" data-en="Kashiani Girish Chandra Pilot High School">কাশিয়ানী গিরীশ চন্দ্র পাইলট উচ্চ বিদ্যালয়</h1>
@@ -562,12 +577,20 @@
     </div>
   </header>
 
+  <!-- নোটিশ মার্কি -->
+  <div class="notice-strip">
+    <span class="tag"><span class="dot"></span> <span data-bn="বিজ্ঞপ্তি" data-en="Notice">বিজ্ঞপ্তি</span></span>
+    <div class="marq"><span data-bn="নতুন পরীক্ষার ফলাফল প্রকাশিত হয়েছে — নিচের নোটিশ বোর্ড দেখুন। বিস্তারিত জানতে নোটিশ বোর্ডে ক্লিক করুন।" data-en="New exam results have been published — see the notice board below. Click the notice board for details.">নতুন পরীক্ষার ফলাফল প্রকাশিত হয়েছে — নিচের নোটিশ বোর্ড দেখুন। বিস্তারিত জানতে নোটিশ বোর্ডে ক্লিক করুন।</span></div>
+  </div>
+
+
+
   <!-- প্রধান মেনু (মেগা ড্রপডাউনসহ) -->
   <nav class="main-nav">
     <ul class="top">
       <li><a href="index.html" data-bn="হোম পেজ" data-en="Home">হোম পেজ</a></li>
       <li>
-        <a href="#" data-bn="বিদ্যালয় সম্পর্কে ▾" data-en="About School ▾">বিদ্যালয় সম্পর্কে ▾</a>
+        <a href="#" data-bn="বিদ্যালয় সম্পর্কে" data-en="About School">বিদ্যালয় সম্পর্কে</a>
         <ul class="dropdown">
           <li><a href="#" data-need-link="ইতিহাস" data-bn="ইতিহাস" data-en="History">ইতিহাস</a></li>
           <li><a href="#" data-need-link="শিক্ষক তালিকা" data-bn="শিক্ষক তালিকা" data-en="Teacher List">শিক্ষক তালিকা</a></li>
@@ -578,7 +601,7 @@
         </ul>
       </li>
       <li>
-        <a href="#" data-bn="ফরম ▾" data-en="Forms ▾">ফরম ▾</a>
+        <a href="#" data-bn="ফরম" data-en="Forms">ফরম</a>
         <ul class="dropdown">
           <li><a href="#" data-need-link="ছাত্র ভর্তি ফরম" data-bn="ছাত্র ভর্তি ফরম" data-en="Student Admission Form">ছাত্র ভর্তি ফরম</a></li>
           <li><a href="#" data-need-link="নাম ও বয়স সংশোধন ফরম" data-bn="নাম ও বয়স সংশোধন ফরম" data-en="Name & Age Correction Form">নাম ও বয়স সংশোধন ফরম</a></li>
@@ -587,7 +610,7 @@
         </ul>
       </li>
       <li>
-        <a href="#" data-bn="ফলাফল আর্কাইভ ▾" data-en="Result Archive ▾">ফলাফল আর্কাইভ ▾</a>
+        <a href="#" data-bn="ফলাফল আর্কাইভ" data-en="Result Archive">ফলাফল আর্কাইভ</a>
         <ul class="dropdown">
           <li><a href="https://sites.google.com/view/reult/resul_helper" target="_blank" data-bn="রেজাল্ট দেখুন" data-en="View Result">রেজাল্ট দেখুন</a></li>
           <li><a href="export/pdf.html" data-bn="PDF ডাউনলোড" data-en="Download PDF">PDF ডাউনলোড</a></li>
@@ -601,24 +624,6 @@
       <li><a href="https://sites.google.com/view/citizen-kgcphs/login" target="_blank" data-bn="লগইন" data-en="Login">লগইন</a></li>
     </ul>
   </nav>
-
-  <!-- কুইক লিংক পিল স্ট্রিপ -->
-  <div class="quicklink-strip">
-    <div class="inner">
-      <a href="https://sites.google.com/view/citizen-kgcphs/form/" target="_blank">On-line Application</a>
-      <a href="https://sites.google.com/view/kgcphs-teachers/home" target="_blank" data-bn="শিক্ষক কর্ণার" data-en="Teacher Corner">শিক্ষক কর্ণার</a>
-      <a href="https://script.google.com/macros/s/AKfycbw1-qjaENSiW_f3Tw96eYRB9K2rKj73VjSwDgIMTuD7/dev" target="_blank" data-bn="ফল প্রক্রিয়াজাতকরণ" data-en="Result Processing">ফল প্রক্রিয়াজাতকরণ</a>
-      <a href="https://script.google.com/macros/s/AKfycbwzr1PJqslMra9zeeiAuuRfFDL7cEmz5gj8m1H7gKFmd7VWhsb3Kd97sev4eMIlaxAPlg/exec" target="_blank" data-bn="উপস্থিতি রেকর্ড" data-en="Attendance Record">উপস্থিতি রেকর্ড</a>
-      <a href="certificate.html">e-Certificate</a>
-      <a href="#" data-need-link="Web Mail">Web Mail</a>
-    </div>
-  </div>
-
-  <!-- নোটিশ মার্কি -->
-  <div class="notice-strip">
-    <span class="tag"><span class="dot"></span> <span data-bn="বিজ্ঞপ্তি" data-en="Notice">বিজ্ঞপ্তি</span></span>
-    <div class="marq"><span data-bn="নতুন পরীক্ষার ফলাফল প্রকাশিত হয়েছে — নিচের নোটিশ বোর্ড দেখুন। বিস্তারিত জানতে নোটিশ বোর্ডে ক্লিক করুন।" data-en="New exam results have been published — see the notice board below. Click the notice board for details.">নতুন পরীক্ষার ফলাফল প্রকাশিত হয়েছে — নিচের নোটিশ বোর্ড দেখুন। বিস্তারিত জানতে নোটিশ বোর্ডে ক্লিক করুন।</span></div>
-  </div>
 
   <div class="wrap">
 
@@ -708,16 +713,6 @@
         </ul>
       </div>
 
-      <div class="side-box social-box">
-        <h4 data-bn="সামাজিক যোগাযোগ" data-en="Social Communication">সামাজিক যোগাযোগ</h4>
-        <ul>
-          <li><a href="#" data-need-link="Facebook Page"><span class="social-ic c-fb">📘</span><span data-bn="Facebook" data-en="Facebook">Facebook</span></a></li>
-          <li><a href="#" data-need-link="YouTube Channel"><span class="social-ic c-yt">▶️</span><span data-bn="YouTube" data-en="YouTube">YouTube</span></a></li>
-          <li><a href="#" data-need-link="Online Class Link"><span class="social-ic c-oc">💻</span><span data-bn="অনলাইন ক্লাস" data-en="Online Class">অনলাইন ক্লাস</span></a></li>
-          <li><a href="#" data-need-link="ঘোষণা"><span class="social-ic c-an">📢</span><span data-bn="ঘোষণা" data-en="Announcement">ঘোষণা</span></a></li>
-        </ul>
-      </div>
-
       <div class="side-box emg-box">
         <ul>
           <li><a href="tel:333" data-need-link="৩৩৩ নম্বর যাচাই করুন"><span class="emg-ic c-blue">৩৩৩</span><span data-bn="সরকারি তথ্য ও সেবা" data-en="Govt. Info & Services">সরকারি তথ্য ও সেবা</span></a></li>
@@ -731,15 +726,15 @@
       <div class="hero-row">
         <div class="carousel" id="carousel">
           <div class="slide active">
-            <img src="https://drive.google.com/uc?export=view&id=1c3-0Be15g1CxJFxM0MsNqRj_IRckImye" alt="বিদ্যালয় ভবন">
+            <img src="images/school-building.jpg" alt="বিদ্যালয় ভবন">
             <div class="cap" data-bn="নাম ও বয়স সংশোধনের আবেদন" data-en="Name & Age Correction Application">নাম ও বয়স সংশোধনের আবেদন</div>
           </div>
           <div class="slide">
-            <img src="https://drive.google.com/uc?export=view&id=1c3-0Be15g1CxJFxM0MsNqRj_IRckImye" alt="ফলাফল সেবা">
+            <img src="images/school-building.jpg" alt="ফলাফল সেবা">
             <div class="cap" data-bn="অনলাইনে রেজাল্ট দেখুন ও ডাউনলোড করুন" data-en="View & Download Results Online">অনলাইনে রেজাল্ট দেখুন ও ডাউনলোড করুন</div>
           </div>
           <div class="slide">
-            <img src="https://drive.google.com/uc?export=view&id=1c3-0Be15g1CxJFxM0MsNqRj_IRckImye" alt="ছাত্র নিবন্ধন">
+            <img src="images/school-building.jpg" alt="ছাত্র নিবন্ধন">
             <div class="cap" data-bn="নতুন ছাত্র-ছাত্রী নিবন্ধন (eSIF) চালু হয়েছে" data-en="New Student Registration (eSIF) Now Open">নতুন ছাত্র-ছাত্রী নিবন্ধন (eSIF) চালু হয়েছে</div>
           </div>
           <div class="dots">
@@ -816,12 +811,21 @@
       </div>
       <div>
         <h5 data-bn="দ্রুত লিংক" data-en="Quick Links">দ্রুত লিংক</h5>
-       <ul>
+        <ul>
           <li><a href="https://sites.google.com/view/citizen-kgcphs/form/" target="_blank" data-bn="ছাত্র নিবন্ধন" data-en="Student Registration">ছাত্র নিবন্ধন</a></li>
           <li><a href="https://sites.google.com/view/kgcphs-teachers/home" target="_blank" data-bn="শিক্ষক কর্ণার" data-en="Teacher Corner">শিক্ষক কর্ণার</a></li>
           <li><a href="Transcript.html" data-bn="ট্রান্সক্রিপ্ট" data-en="Transcript">ট্রান্সক্রিপ্ট</a></li>
           <li><a href="certificate.html" data-bn="সার্টিফিকেট" data-en="Certificate">সার্টিফিকেট</a></li>
           <li><a href="analytics.html" data-bn="বিশ্লেষণ" data-en="Analytics">বিশ্লেষণ</a></li>
+        </ul>
+      </div>
+      <div class="social-box">
+        <h5 data-bn="সামাজিক যোগাযোগ" data-en="Social Communication">সামাজিক যোগাযোগ</h5>
+        <ul>
+          <li><a href="#" data-need-link="Facebook Page"><span class="social-ic c-fb">📘</span><span data-bn="Facebook" data-en="Facebook">Facebook</span></a></li>
+          <li><a href="#" data-need-link="YouTube Channel"><span class="social-ic c-yt">▶️</span><span data-bn="YouTube" data-en="YouTube">YouTube</span></a></li>
+          <li><a href="#" data-need-link="Online Class Link"><span class="social-ic c-oc">💻</span><span data-bn="অনলাইন ক্লাস" data-en="Online Class">অনলাইন ক্লাস</span></a></li>
+          <li><a href="#" data-need-link="ঘোষণা"><span class="social-ic c-an">📢</span><span data-bn="ঘোষণা" data-en="Announcement">ঘোষণা</span></a></li>
         </ul>
       </div>
     </div>
