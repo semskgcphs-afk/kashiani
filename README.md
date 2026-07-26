@@ -1,4 +1,4 @@
-# রেজাল্ট ট্রান্সক্রিপ্ট (Academic Transcript) — Kashiani G.C. Pilot High School
+ # রেজাল্ট ট্রান্সক্রিপ্ট (Academic Transcript) — Kashiani G.C. Pilot High School
 
 Google Apps Script দিয়ে বানানো ছাত্র ফলাফল অনুসন্ধান ওয়েব অ্যাপ। এই রিপো `clasp` ব্যবহার করে
 GitHub → Google Apps Script অটো-ডিপ্লয়ের জন্য রেডি করা হয়েছে।
