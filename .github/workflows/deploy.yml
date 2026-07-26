@@ -1,0 +1,29 @@
+name: Deploy to Google Apps Script
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: চেকআউট কোড
+        uses: actions/checkout@v4
+
+      - name: Node.js সেটআপ
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: clasp ইনস্টল
+        run: npm install -g @google/clasp
+
+      - name: clasp ক্রেডেনশিয়াল বসানো (GitHub Secrets থেকে)
+        run: echo "${{ secrets.CLASPRC_JSON }}" > ~/.clasprc.json
+
+      - name: .clasp.json তৈরি (GitHub Secret থেকে Script ID দিয়ে)
+        run: echo '{"scriptId":"${{ secrets.SCRIPT_ID }}","rootDir":"./"}' > .clasp.json
+
+      - name: Apps Script এ পুশ করা
+        run: clasp push --force
